@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malikam</title>  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdcMMeh2hpHL-0T9D1l68XY2NPkdfg7KIIYg&s" type="image/x-icon">
+
+    <style>
+        body {
+            display: flex;  
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            overflow: hidden;
+        }
+
+        /* Yurak chizish animatsiyasi */
+        .heart path {
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 5000;
+            animation: drawHeart 4s ease-in-out forwards;
+        }
+
+        @keyframes drawHeart {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Matn chiqish animatsiyasi */
+        .text {
+            font-size: 26px; /* Matn sig‘ishi uchun kichikroq */
+            font-weight: bold;
+            fill: darkblue; /* Matn rangi yurakdan farqli bo‘lishi uchun */
+            text-anchor: middle;
+            opacity: 0;
+            animation: fadeInText 2s ease-in-out forwards;
+        }
+
+        /* Har bir matn ketma-ket chiqishi */
+        .text1 { animation-delay: 1.5s; } /* 1-matn yurak chizilgandan keyin chiqadi */
+        .text2 { animation-delay: 2.5s; } /* 2-matn keyin chiqadi */
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Yurak stikeri */
+        .emoji {
+            font-size: 50px;
+            opacity: 0;
+            animation: showHeart 2s ease-in-out forwards;
+            animation-delay: 3s; /* Matndan keyin chiqishi uchun */
+        }
+
+        @keyframes showHeart {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CHUQURROQ Yurak -->
+    <svg width="600" height="600" viewBox="0 0 400 450">
+        <g class="heart">
+            <path d="M200 400 
+                     C 50 250, 50 100, 200 150 
+                     C 350 100, 350 250, 200 400" 
+                  fill="transparent" 
+                  stroke="red" 
+                  stroke-width="6"/>
+        </g>
+
+        <!-- Matn yurak ichida -->
+        <text x="200" y="210" class="text text1">Hayit bayraming</text>
+        <text x="200" y="250" class="text text2">Muborak bo‘lsin,</text>
+        <text x="200" y="290" class="text text2">mening sevimli Malikam!</text>
+    </svg>
+
+    <!-- Yurak stikeri ❤️ -->
+    <div class="emoji">❤️</div>
+
+</body>
+</html>
